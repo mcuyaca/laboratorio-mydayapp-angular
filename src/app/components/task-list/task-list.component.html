@@ -1,0 +1,5 @@
+<section class="main" *ngIf="data.length !== 0">
+  <ul class="todo-list" *ngFor="let element of data">
+    <app-task [task]="element"></app-task>
+  </ul>
+</section>
