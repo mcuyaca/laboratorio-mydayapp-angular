@@ -1,4 +1,5 @@
 import { Component, HostListener, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Task } from '@models/task.model';
 import { TaskService } from '@services/task.service';
 
@@ -13,7 +14,7 @@ export class TaskComponent {
     title: '',
     completed: false,
   };
-
+  inputTask: string = '';
   editing = false;
 
   @HostListener('window:keydown.esc', ['$event'])
@@ -29,9 +30,19 @@ export class TaskComponent {
     this.taskService.deleteTask(id);
   }
 
-  handleEdit(title: string) {
+  editTask() {
     this.editing = !this.editing;
-    this.taskService.updateTask(this.task.id, 'titulo nuevo');
+  }
+
+  saveEditedTask(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.editing = !this.editing;
+      const newTitle = this.inputTask.trim();
+      console.log(newTitle);
+      if (newTitle !== '') {
+        this.taskService.updateTask(this.task.id, newTitle);
+      }
+    }
   }
 
   toggleCompleted(id: string) {

@@ -1,8 +1,8 @@
 <li [ngClass]="{'completed': task.completed , 'editing' : editing}">
   <div class="view">
     <input class="toggle" type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task.id)" />
-    <label (dblclick)="handleEdit(task.id)">{{task.title}}</label>
+    <label (dblclick)="editTask()">{{task.title}}</label>
     <button class="destroy" (click)="handleDeleteClick(task.id)"></button>
   </div>
-  <input class="edit" [value]="task.title" />
+  <input class="edit" [(ngModel)]="inputTask" [value]="task.title" (keypress)="saveEditedTask($event)" />
 </li>

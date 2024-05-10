@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from '@models/task.model';
 import { BehaviorSubject } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,7 @@ export class TaskService {
   addTask(newTitle: string): Task[] {
     if (newTitle.trim() === '') return this.data;
     const newTask: Task = {
-      id: (this.data.length + 1).toString(),
+      id: uuidv4(),
       title: newTitle,
       completed: false,
     };
