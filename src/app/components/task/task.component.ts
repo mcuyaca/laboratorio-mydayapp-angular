@@ -1,5 +1,4 @@
 import { Component, HostListener, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Task } from '@models/task.model';
 import { TaskService } from '@services/task.service';
 

@@ -8,9 +8,10 @@ import { CommonModule } from '@angular/common';
 import { TaskComponent } from '@components/task/task.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, TaskListComponent, TaskComponent, FooterComponent],
+  declarations: [AppComponent, HomeComponent, TaskListComponent, TaskComponent, FooterComponent, PageNotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
