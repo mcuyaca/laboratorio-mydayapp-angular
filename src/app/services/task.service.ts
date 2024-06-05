@@ -56,4 +56,9 @@ export class TaskService {
     );
     this.updateStorage(this.data);
   }
+
+  clearCompleted() {
+    this.data = this.data.filter((task) => !task.completed);
+    this.updateStorage(this.data);
+  }
 }
